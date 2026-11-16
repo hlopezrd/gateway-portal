@@ -40,7 +40,7 @@
     </p>
     <div class="hero-actions">
       <a class="btn btn-primary" href="#planes" style="background:#fff;color:#1e40af;">Ver planes</a>
-      <a class="btn btn-outline-light" href="mailto:contacto@ecfgateway.com?subject=Solicito%20acceso%20a%20ECF%20Gateway">Solicitar acceso</a>
+      <a class="btn btn-outline-light" href="mailto:{{EMAIL_CONTACTO}}?subject=Solicito%20acceso%20a%20ECF%20Gateway">Solicitar acceso</a>
     </div>
   </div>
 </section>
@@ -187,7 +187,7 @@
           <li>Portal web</li>
           <li>Certificado DGII por tu cuenta</li>
         </ul>
-        <a class="btn btn-outline" href="mailto:contacto@ecfgateway.com?subject=Plan%20Free">Comenzar gratis</a>
+        <a class="btn btn-outline" href="mailto:{{EMAIL_CONTACTO}}?subject=Plan%20Free">Comenzar gratis</a>
       </article>
 
       <article class="plan plan-featured">
@@ -202,7 +202,7 @@
           <li>API REST</li>
           <li>Correo electrónico</li>
         </ul>
-        <a class="btn btn-primary" href="mailto:contacto@ecfgateway.com?subject=Plan%20Starter">Contratar Starter</a>
+        <a class="btn btn-primary" href="mailto:{{EMAIL_CONTACTO}}?subject=Plan%20Starter">Contratar Starter</a>
       </article>
 
       <article class="plan">
@@ -216,7 +216,7 @@
           <li>API REST</li>
           <li>Correo electrónico</li>
         </ul>
-        <a class="btn btn-outline" href="mailto:contacto@ecfgateway.com?subject=Plan%20Professional">Contratar Professional</a>
+        <a class="btn btn-outline" href="mailto:{{EMAIL_CONTACTO}}?subject=Plan%20Professional">Contratar Professional</a>
       </article>
 
       <article class="plan">
@@ -231,14 +231,26 @@
           <li>Correo electrónico</li>
           <li>Soporte prioritario</li>
         </ul>
-        <a class="btn btn-outline" href="mailto:contacto@ecfgateway.com?subject=Plan%20Enterprise">Contratar Enterprise</a>
+        <a class="btn btn-outline" href="mailto:{{EMAIL_CONTACTO}}?subject=Plan%20Enterprise">Contratar Enterprise</a>
       </article>
     </div>
 
     <p style="text-align:center;margin-top:2rem;color:#6b7280;font-size:.9375rem;">
-      El certificado digital de la DGII se contrata por separado con la autoridad emissions
+      El certificado digital de la DGII se contrata por separado con la autoridad emisora
       y no está incluido en el precio del plan.
     </p>
+
+    <div class="callout" style="max-width:44rem;margin:1.5rem auto 0;background:#fff;border:1px solid #e5e7e6;border-left:3px solid #1e40af;border-radius:.5rem;padding:1rem 1.25rem;">
+      <p style="margin:0;font-size:.9375rem;">
+        <strong>Sobre los precios.</strong> Los importes y límites publicados en esta página son
+        los vigentes al momento de actualizar el sitio y pueden cambiar para responder a las
+        condiciones del mercado, al volumen y a los costos de operación. Siempre prevalecen
+        los precios y límites que aparezcan en tu cuenta y en el portal al momento de
+        contratar o de renovar. Los cambios no afectan al período que ya tenés contratado.
+        Cualquier duda sobre el precio que te aplique, escríbenos a
+        <a href="mailto:{{EMAIL_CONTACTO}}">{{EMAIL_CONTACTO}}</a>.
+      </p>
+    </div>
   </div>
 </section>
 
@@ -289,7 +301,7 @@
         <h3>¿Cómo contacto soporte?</h3>
         <p>
           Escribiendo a
-          <a href="mailto:contacto@ecfgateway.com">contacto@ecfgateway.com</a>.
+          <a href="mailto:{{EMAIL_CONTACTO}}">{{EMAIL_CONTACTO}}</a>.
           Respondemos en horario laboral de República Dominicana.
         </p>
       </article>
@@ -307,7 +319,7 @@
         activación de tu cuenta.
       </p>
       <p style="margin-top:1.5rem;">
-        <a class="btn btn-primary" href="mailto:contacto@ecfgateway.com?subject=Solicito%20acceso%20a%20ECF%20Gateway">Solicitar acceso</a>
+        <a class="btn btn-primary" href="mailto:{{EMAIL_CONTACTO}}?subject=Solicito%20acceso%20a%20ECF%20Gateway">Solicitar acceso</a>
       </p>
     </div>
   </div>
@@ -327,10 +339,10 @@
           de Impuestos Internos.
         </p>
         <div class="footer-identity">
-          <div><strong>RNC:</strong> 131-45678-9</div>
-          <div><strong>Correo:</strong> contacto@ecfgateway.com</div>
-          <div><strong>Teléfono:</strong> +1 809 000 0000</div>
-          <div><strong>Dirección:</strong> Santo Domingo, República Dominicana</div>
+          <div><strong>RNC:</strong> {{RNC_EMPRESA}}</div>
+          <div><strong>Correo:</strong> {{EMAIL_CONTACTO}}</div>
+          <div><strong>Teléfono:</strong> {{TELEFONO}}</div>
+          <div><strong>Dirección:</strong> {{DIRECCION}}</div>
         </div>
       </div>
 

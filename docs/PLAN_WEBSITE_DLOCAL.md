@@ -72,6 +72,7 @@ gateway-portal/
 │   ├── css/styles.css
 │   └── img/logo.svg
 ├── CNAME               # si usas dominio propio
+├── check-placeholders.sh       # detecta los {{PLACEHOLDERS}} sin reemplazar
 └── docs/
     └── PLAN_WEBSITE_DLOCAL.md   # este plan
 ```
@@ -113,13 +114,27 @@ Secciones:
 
 ### 3.5 Identidad visible (en todas las páginas, footer)
 
+La identidad **no** está escrita en el código: son placeholders que se reemplazan
+antes de publicar. `./check-placeholders.sh` los detecta (y con `--strict` devuelve
+código de error 1, para usarlo en CI).
+
 ```
 ECF Gateway
-RNC: <tu RNC>
-Correo: <tu email corporativo>
-Teléfono: <opcional>
-Dirección: <opcional>
+RNC: {{RNC_EMPRESA}}
+Correo: {{EMAIL_CONTACTO}}
+Teléfono: {{TELEFONO}}
+Dirección: {{DIRECCION}}
 ```
+
+| Placeholder | Qué es |
+|---|---|
+| `{{RNC_EMPRESA}}` | RNC de la empresa |
+| `{{EMAIL_CONTACTO}}` | Correo de contacto — **debe ser el mismo con el que se registró en dLocal** |
+| `{{TELEFONO}}` | Teléfono de contacto |
+| `{{DIRECCION}}` | Domicilio de la empresa |
+
+Están en el bloque `.footer-identity` de las cinco páginas, en los enlaces `mailto:` y
+en los textos legales (Términos §1, Privacidad §1).
 
 ---
 
@@ -149,6 +164,17 @@ desde una sola plataforma. API + Portal + App.
 > Los precios definitivos están en `e-ncf/docs/PRICING_AND_LIMITS.md`. Este plan usa los valores de referencia; hay que actualizarlos antes de publicar (los precios mostrados en el sitio deben coincidir con los del sistema).
 
 Descuento anual: 15%. Certificado DGII aparte.
+
+> **Nota de precios (obligatoria):** la sección de planes incluye una advertencia
+> que aclara que los importes y límites son los vigentes al momento de actualizar el
+> sitio y **pueden cambiar** según las condiciones del mercado, el volumen y los costos
+> de operación; que siempre prevalecen los precios y límites que aparezcan en la cuenta
+> del cliente y en el portal al contratar o renovar; y que los cambios no afectan al
+> período ya contratado. Los Términos §6 lo recoge desde el punto de vista contractual.
+>
+> Es una salvaguarda: si suben los precios, el sitio publicado no debe quedar
+> prometiendo un importe que el sistema no aplica. Cuando cambien los precios hay que
+> actualizar **las dos** cosas: `index.html` y los planes en `main_plans` del backend.
 
 ### 4.3 index.html — Características
 
@@ -215,9 +241,10 @@ gateway-portal/
 | 2 | Escribir el HTML/CSS de la landing | 2-3 horas |
 | 3 | Escribir las 4 políticas (T&C, privacidad, reembolso, envío) | 1-2 horas |
 | 4 | Agregar logo y branding | 30 min |
-| 5 | Hospedar en GitHub Pages / Cloudflare Pages | 15 min |
-| 6 | Verificar que cumple los requisitos de dLocal | 15 min |
-| 7 | Crear la cuenta en dLocal Go con el email del sitio | 15 min |
+| 5 | Reemplazar los placeholders de identidad (`./check-placeholders.sh`) | 15 min |
+| 6 | Hospedar en GitHub Pages / Cloudflare Pages | 15 min |
+| 7 | Verificar que cumple los requisitos de dLocal | 15 min |
+| 8 | Crear la cuenta en dLocal Go con el email del sitio | 15 min |
 
 **Tiempo total estimado: 4-6 horas.**
 

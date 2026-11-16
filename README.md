@@ -60,8 +60,31 @@ Queda en `https://<usuario>.github.io/gateway-portal/`.
 
 ## Antes de publicar
 
-Checklist de los requisitos de dLocal:
+### 1. Reemplazar los placeholders
 
+La identidad de la empresa **no** está en el código: son placeholders que hay que
+reemplazar. El script los detecta:
+
+```bash
+./check-placeholders.sh          # informa
+./check-placeholders.sh --strict # sale con código 1 si quedan (para CI)
+```
+
+Placeholders usados:
+
+| Placeholder | Qué es |
+|---|---|
+| `{{RNC_EMPRESA}}` | RNC de la empresa |
+| `{{EMAIL_CONTACTO}}` | Correo de contacto — **debe ser el mismo con el que te registrás en dLocal** |
+| `{{TELEFONO}}` | Teléfono de contacto |
+| `{{DIRECCION}}` | Domicilio de la empresa |
+
+Están en el bloque `.footer-identity` de las cinco páginas, en los enlaces `mailto:` y
+en los textos legales (Términos §1, Privacidad §1).
+
+### 2. Checklist de los requisitos de dLocal
+
+- [ ] `./check-placeholders.sh --strict` no reporta nada.
 - [ ] No queda ningún texto de ejemplo ni "en construcción".
 - [ ] Los cuatro enlaces del footer (Términos, Privacidad, Reembolso, Envío) funcionan.
 - [ ] El RNC, el correo y el teléfono del footer coinciden con los de la cuenta dLocal.
@@ -70,10 +93,21 @@ Checklist de los requisitos de dLocal:
 - [ ] El sitio se ve bien en móvil y en escritorio.
 - [ ] El sitio carga por HTTPS.
 
-## Editar la identidad
+### 3. Sobre los precios
 
-La identidad de la empresa (RNC, correo, teléfono, dirección) aparece en el footer de
-las cinco páginas. Para cambiarla, editar el bloque `.footer-identity` en cada HTML.
+La sección de planes incluye una nota que aclara que **los importes y límites son los
+vigentes al momento de actualizar el sitio y pueden cambiar** según el mercado, el
+volumen y los costos de operación; que siempre prevalecen los precios que aparecen en
+la cuenta del cliente y en el portal, y que los cambios no afectan al período ya
+contratado.
+
+Es una salvaguarda: si los precios cambian, el sitio publicado no queda prometiendo
+un importe que el sistema no aplica. Los Términos §6 dice lo mismo desde el punto de
+vista contractual ("Los precios pueden ajustarse con previo aviso. El ajuste no aplica
+al período en curso").
+
+Cuando cambien los precios hay que actualizar **las dos** cosas: `index.html` y los
+planes cargados en `main_plans` del backend.
 
 ## Nota sobre los precios
 
