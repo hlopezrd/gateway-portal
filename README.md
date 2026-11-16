@@ -25,69 +25,128 @@ Ver [`docs/PLAN_WEBSITE_DLOCAL.md`](./docs/PLAN_WEBSITE_DLOCAL.md) para el plan 
 ├── assets/
 │   ├── css/styles.css  # Estilos (paleta alineada con el portal)
 │   └── img/logo.svg    # Logotipo
+├── site.config.json    # ← LA IDENTIDAD DE LA EMPRESA (un solo lugar)
+├── build.py            # Genera dist/ inyectando la identidad
+├── check-placeholders.sh # Verifica que no queden tokens sin reemplazar
 ├── CNAME               # Dominio propio (opcional)
 └── docs/
     └── PLAN_WEBSITE_DLOCAL.md
 ```
 
-## Desarrollo
+---
 
-Es un sitio estático: no hay build step. Para verlo localmente:
+## Configurar la identidad (un solo lugar)
+
+La identidad de la empresa está **únicamente** en `site.config.json`:
+
+```json
+{
+  "empresa": "ECF Gateway",
+  "correo": "hlopezrd@gmail.com"
+}
+```
+
+Para cambiarla:
 
 ```bash
-python3 -m http.server 8080
+# 1. editar site.config.json
+# 2. regenerar el sitio
+python3 build.py
+# 3. publicar
+git add -A && git commit -m "..." && git push
+```
+
+`build.py` lee el JSON y genera `dist/` con los tokens ya reemplazados. **No hay que
+tocar ninguna página HTML**: el correo y el nombre aparecen en el footer de las
+cinco páginas, en los enlaces `mailto:` y en los textos legales (Términos §1,
+Privacidad §1), y todos salen del mismo JSON.
+
+### Por qué un build y no un fetch en runtime
+
+El sitio es HTML estático: los valores llegan ya horneados en el HTML. Es lo que
+necesita la revisión de dLocal, que puede leer el sitio sin ejecutar JavaScript.
+Un `fetch()` en runtime dejaría el correo invisible sin JavaScript, y la revisión
+de dLocal lee el sitio como un cliente más.
+
+### Placeholders
+
+En el HTML fuente los valores aparecen como tokens:
+
+| Token | Sale de |
+|---|---|
+| `{{EMPRESA}}` | `site.config.json` → `empresa` |
+| `{{EMAIL_CONTACTO}}` | `site.config.json` → `correo` |
+
+### Verificar
+
+```bash
+./check-placeholders.sh          # informa
+./check-placeholders.sh --strict # sale con código 1 si hay problemas (para CI)
+python3 build.py --check         # verifica que dist/ esté al día
+```
+
+---
+
+## Desarrollo
+
+Es un sitio estático. Para verlo localmente:
+
+```bash
+python3 build.py
+python3 -m http.server -d dist 8080
 # http://localhost:8080
 ```
 
+Para trabajar sobre el HTML fuente (con tokens) sin generar `dist/`, se puede
+servir la raíz, pero los `{{...}}` se ven tal cual.
+
+---
+
 ## Deploy
+
+El sitio publicado es `dist/`, que genera `build.py`.
 
 ### GitHub Pages
 
 ```bash
 git remote add origin git@github.com:<usuario>/gateway-portal.git
 git push -u origin main
-
-# Settings > Pages > Source: main / (root)
 ```
+
+En **Settings → Pages**:
+- Source: `Deploy from a branch`
+- Branch: `main`, folder: `/ (root)`
+
+Como `dist/` está versionado, se publica tal cual: no hace falta configuración de
+build en GitHub.
 
 Queda en `https://<usuario>.github.io/gateway-portal/`.
 
 ### Cloudflare Pages (recomendado para producción)
 
 - Dashboard → Workers & Pages → Create → Pages → Conectar repositorio.
-- Build command: *(vacío)*. Output directory: `/`.
+- Build command: `python3 build.py`
+- Output directory: `dist`
 - Dominio propio: `ecfgateway.com` (agregar `CNAME` con el dominio).
 
 ## Antes de publicar
 
-### 1. Reemplazar los placeholders
+### 1. Revisar la identidad
 
-La identidad de la empresa **no** está en el código: son placeholders que hay que
-reemplazar. El script los detecta:
+La identidad sale de `site.config.json`. Verifica que el correo sea **el mismo con el
+que te registrás en dLocal Go**:
 
 ```bash
-./check-placeholders.sh          # informa
-./check-placeholders.sh --strict # sale con código 1 si quedan (para CI)
+cat site.config.json
 ```
-
-Placeholders usados:
-
-| Placeholder | Qué es |
-|---|---|
-| `{{RNC_EMPRESA}}` | RNC de la empresa |
-| `{{EMAIL_CONTACTO}}` | Correo de contacto — **debe ser el mismo con el que te registrás en dLocal** |
-| `{{TELEFONO}}` | Teléfono de contacto |
-| `{{DIRECCION}}` | Domicilio de la empresa |
-
-Están en el bloque `.footer-identity` de las cinco páginas, en los enlaces `mailto:` y
-en los textos legales (Términos §1, Privacidad §1).
 
 ### 2. Checklist de los requisitos de dLocal
 
 - [ ] `./check-placeholders.sh --strict` no reporta nada.
+- [ ] `python3 build.py --check` dice que `dist/` está al día.
 - [ ] No queda ningún texto de ejemplo ni "en construcción".
 - [ ] Los cuatro enlaces del footer (Términos, Privacidad, Reembolso, Envío) funcionan.
-- [ ] El RNC, el correo y el teléfono del footer coinciden con los de la cuenta dLocal.
+- [ ] El nombre y el correo del footer coinciden con los de la cuenta dLocal.
 - [ ] El correo del footer es **el mismo** con el que se registró en dLocal.
 - [ ] Los precios de la sección de planes coinciden con `e-ncf/docs/PRICING_AND_LIMITS.md`.
 - [ ] El sitio se ve bien en móvil y en escritorio.
@@ -97,9 +156,9 @@ en los textos legales (Términos §1, Privacidad §1).
 
 La sección de planes incluye una nota que aclara que **los importes y límites son los
 vigentes al momento de actualizar el sitio y pueden cambiar** según el mercado, el
-volumen y los costos de operación; que siempre prevalecen los precios que aparecen en
-la cuenta del cliente y en el portal, y que los cambios no afectan al período ya
-contratado.
+volumen y los costos de operación; que siempre prevalecen los precios y límites que
+aparezcan en la cuenta del cliente y en el portal al momento de contratar o renovar; y
+que los cambios no afectan al período ya contratado.
 
 Es una salvaguarda: si los precios cambian, el sitio publicado no queda prometiendo
 un importe que el sistema no aplica. Los Términos §6 dice lo mismo desde el punto de
@@ -109,8 +168,15 @@ al período en curso").
 Cuando cambien los precios hay que actualizar **las dos** cosas: `index.html` y los
 planes cargados en `main_plans` del backend.
 
-## Nota sobre los precios
+---
 
-Los precios del sitio son de referencia. La fuente de verdad es
-`e-ncf/docs/PRICING_AND_LIMITS.md` y, en el sistema, los planes cargados en
-`main_plans`. Si cambian, hay que actualizar `index.html`.
+## Nota sobre la identidad
+
+Por ahora se publica **solo el nombre de la empresa y el correo de contacto**. No se
+publica el RNC ni la cédula del titular: dLocal Go acepta el correo electrónico
+como identificación ("número de identificación comercial **o** el correo electrónico
+con el que te registró"), de modo que no hace falta exponer un documento personal.
+
+Si más adelante se decide publicar también el RNC comercial o el teléfono, se
+agregan las claves a `site.config.json` y sus placeholders al footer; el build ya
+soporta cualquier clave nueva sin cambiar el HTML a mano.
