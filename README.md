@@ -104,30 +104,34 @@ servir la raíz, pero los `{{...}}` se ven tal cual.
 
 ## Deploy
 
-El sitio publicado es `dist/`, que genera `build.py`.
+El sitio se despliega automáticamente con **GitHub Actions** (`.github/workflows/pages.yml`):
+al hacer `git push` a `main`, el workflow genera `docs/` con `python3 build.py`
+y publica el resultado en GitHub Pages.
 
-### GitHub Pages
+URL publicada: **https://hlopezrd.github.io/gateway-portal/**
+
+### Cómo actualizar la identidad (sin recompilar nada)
 
 ```bash
-git remote add origin git@github.com:<usuario>/gateway-portal.git
-git push -u origin main
+# 1. editar el JSON
+vim site.config.json
+
+# 2. regenerar el sitio
+python3 build.py
+
+# 3. publicar
+git add -A && git commit -m "actualizar identidad" && git push
 ```
 
-En **Settings → Pages**:
-- Source: `Deploy from a branch`
-- Branch: `main`, folder: `/ (root)`
-
-Como `dist/` está versionado, se publica tal cual: no hace falta configuración de
-build en GitHub.
-
-Queda en `https://<usuario>.github.io/gateway-portal/`.
+GitHub Actions se encarga del resto. No hay build de Node ni deploy manual.
 
 ### Cloudflare Pages (recomendado para producción)
 
 - Dashboard → Workers & Pages → Create → Pages → Conectar repositorio.
 - Build command: `python3 build.py`
-- Output directory: `dist`
+- Output directory: `docs`
 - Dominio propio: `ecfgateway.com` (agregar `CNAME` con el dominio).
+
 
 ## Antes de publicar
 
