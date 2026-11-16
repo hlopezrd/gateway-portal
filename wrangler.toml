@@ -1,0 +1,4 @@
+# Configuracion de Cloudflare Pages.
+# https://developers.cloudflare.com/pages/configuration/build-configuration/
+name = "gateway-portal"
+pages_build_output_dir = "./docs"
