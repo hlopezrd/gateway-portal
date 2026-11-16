@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="es-DO">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ECF Gateway — Facturación electrónica para empresas dominicanas</title>
+  <meta name="description" content="Plataforma de facturación electrónica para República Dominicana. Emite e-CF (comprobantes fiscales electrónicos) ante la DGII, con portal web, API REST y OCR de facturas.">
+  <meta name="keywords" content="facturación electrónica, e-CF, DGII, República Dominicana, comprobantes fiscales electrónicos, API">
+  <meta name="author" content="ECF Gateway">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ECF Gateway — Facturación electrónica para empresas dominicanas">
+  <meta property="og:description" content="Emite, gestiona y monitorea tus comprobantes fiscales electrónicos (e-CF) ante la DGII desde una sola plataforma.">
+  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html">
+      <img src="assets/img/logo.svg" alt="ECF Gateway">
+      <span>ECF Gateway</span>
+    </a>
+    <nav class="site-nav">
+      <a href="#producto">Producto</a>
+      <a href="#caracteristicas">Características</a>
+      <a href="#planes">Planes</a>
+      <a href="#faq">Preguntas</a>
+      <a href="terms.html">Términos</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Facturación electrónica para empresas dominicanas</h1>
+    <p class="lead">
+      Emite, gestiona y monitorea tus comprobantes fiscales electrónicos (e-CF) ante la
+      DGII desde una sola plataforma. Portal web, API REST y lectura automática de facturas.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#planes" style="background:#fff;color:#1e40af;">Ver planes</a>
+      <a class="btn btn-outline-light" href="mailto:contacto@ecfgateway.com?subject=Solicito%20acceso%20a%20ECF%20Gateway">Solicitar acceso</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="producto">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">El producto</span>
+      <h2>Todo lo que la facturación electrónica exige, en un solo lugar</h2>
+      <p>
+        La Dirección General de Impuestos Internos exige emitir los comprobantes fiscales
+        electrónicos con formato y firma digital validados. ECF Gateway se encarga de la parte
+        técnica: tú emites, el sistema valida, firma, envía y guarda.
+      </p>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <div class="card-icon">1</div>
+        <h3>Emisión ante la DGII</h3>
+        <p>
+          Genera el XML con la estructura oficial, lo firma digitalmente con tu certificado
+          y lo envía a la DGII. Sigues el estado de cada comprobante en tiempo real.
+        </p>
+      </article>
+      <article class="card">
+        <div class="card-icon">2</div>
+        <h3>Todos los tipos de comprobante</h3>
+        <p>
+          Factura de consumo (31), crédito fiscal (32), notas de débito y crédito (33 y 34),
+          comprobantes de retenciones (41 a 47) y demás tipos habilitados por la DGII.
+        </p>
+      </article>
+      <article class="card">
+        <div class="card-icon">3</div>
+        <h3>Portal web</h3>
+        <p>
+          Dashboard con el consumo del mes, lista de comprobantes, descarga de PDF con QR,
+          XML firmado, clientes, usuarios y configuración de la organización.
+        </p>
+      </article>
+      <article class="card">
+        <div class="card-icon">4</div>
+        <h3>API REST</h3>
+        <p>
+          Integra la facturación con tu sistema contable o de inventario. Documentación
+          OpenAPI, autenticación por clave de API y endpoints de consulta de estado.
+        </p>
+      </article>
+      <article class="card">
+        <div class="card-icon">5</div>
+        <h3>Lectura automática de facturas</h3>
+        <p>
+          Sube la foto o el PDF de una factura de proveedor y el sistema extrae los datos,
+          calcula los impuestos y deja el borrador listo para revisar y emitir.
+        </p>
+      </article>
+      <article class="card">
+        <div class="card-icon">6</div>
+        <h3>Directorio de compradores</h3>
+        <p>
+          Guarda tus clientes con RNC, nombre, teléfono y dirección. Al emitir, los datos
+          se completan solos y no vuelves a escribirlos.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="caracteristicas">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Detalles</span>
+      <h2>Lo que incluye cada plan</h2>
+      <p>Las capacidades que usas todos los días, sin letra chica.</p>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <h3>Multiempresa</h3>
+        <p>
+          Cada organización queda aislada: sus comprobantes, clientes, usuarios y
+          certificados nunca se mezclan con los de otra.
+        </p>
+      </article>
+      <article class="card">
+        <h3>Certificados por tenant</h3>
+        <p>
+          Cada cliente final gestiona su propio certificado digital de la DGII desde
+          el portal, sin depender de nosotros.
+        </p>
+      </article>
+      <article class="card">
+        <h3>PDF con QR y XML</h3>
+        <p>
+          Descarga el comprobante en PDF con el código QR de verificación de la DGII
+          y el XML firmado en formato original.
+        </p>
+      </article>
+      <article class="card">
+        <h3>Propinas y retenciones</h3>
+        <p>
+          Configura por tenant la propina legal, la retención de ISR y la retención de
+          ITBIS, y el sistema los aplica según el tipo de comprobante.
+        </p>
+      </article>
+      <article class="card">
+        <h3>Monitoreo</h3>
+        <p>
+          Seguimiento de errores y rendimiento en tiempo real, con alertas cuando
+          un comprobante es rechazado por la DGII.
+        </p>
+      </article>
+      <article class="card">
+        <h3>Envío al cliente</h3>
+        <p>
+          Comparte el comprobante con tu cliente por enlace seguro o correo electrónico,
+          sin que tenga que registrarse en la plataforma.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="planes">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Planes</span>
+      <h2>Pagos mensuales según el volumen</h2>
+      <p>
+        El precio se calcula sobre los comprobantes que emites en el mes. Si te pasas del
+        límite, pagas solo los adicionales. Descuento del 15% en el pago anual.
+      </p>
+    </div>
+
+    <div class="plans">
+      <article class="plan">
+        <div class="plan-name">Free</div>
+        <div class="plan-price">RD$0<span>/mes</span></div>
+        <p class="plan-note">Para probar la plataforma</p>
+        <ul>
+          <li>50 comprobantes al mes</li>
+          <li>1 usuario</li>
+          <li>Portal web</li>
+          <li>Certificado DGII por tu cuenta</li>
+        </ul>
+        <a class="btn btn-outline" href="mailto:contacto@ecfgateway.com?subject=Plan%20Free">Comenzar gratis</a>
+      </article>
+
+      <article class="plan plan-featured">
+        <span class="plan-badge">Más elegido</span>
+        <div class="plan-name">Starter</div>
+        <div class="plan-price">RD$1,500<span>/mes</span></div>
+        <p class="plan-note">Para Shops y negocios que recién empiezan</p>
+        <ul>
+          <li>100 comprobantes al mes</li>
+          <li>3 usuarios</li>
+          <li>Lectura automática de facturas (30/mes)</li>
+          <li>API REST</li>
+          <li>Correo electrónico</li>
+        </ul>
+        <a class="btn btn-primary" href="mailto:contacto@ecfgateway.com?subject=Plan%20Starter">Contratar Starter</a>
+      </article>
+
+      <article class="plan">
+        <div class="plan-name">Professional</div>
+        <div class="plan-price">RD$4,500<span>/mes</span></div>
+        <p class="plan-note">Para negocios con volumen estable</p>
+        <ul>
+          <li>500 comprobantes al mes</li>
+          <li>10 usuarios</li>
+          <li>Lectura automática de facturas (150/mes)</li>
+          <li>API REST</li>
+          <li>Correo electrónico</li>
+        </ul>
+        <a class="btn btn-outline" href="mailto:contacto@ecfgateway.com?subject=Plan%20Professional">Contratar Professional</a>
+      </article>
+
+      <article class="plan">
+        <div class="plan-name">Enterprise</div>
+        <div class="plan-price">RD$12,000<span>/mes</span></div>
+        <p class="plan-note">Para alto volumen y varias sedes</p>
+        <ul>
+          <li>2,000 comprobantes al mes</li>
+          <li>50 usuarios</li>
+          <li>Lectura automática sin límite</li>
+          <li>API REST</li>
+          <li>Correo electrónico</li>
+          <li>Soporte prioritario</li>
+        </ul>
+        <a class="btn btn-outline" href="mailto:contacto@ecfgateway.com?subject=Plan%20Enterprise">Contratar Enterprise</a>
+      </article>
+    </div>
+
+    <p style="text-align:center;margin-top:2rem;color:#6b7280;font-size:.9375rem;">
+      El certificado digital de la DGII se contrata por separado con la autoridad emissions
+      y no está incluido en el precio del plan.
+    </p>
+  </div>
+</section>
+
+<section class="section section-alt" id="faq">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Preguntas</span>
+      <h2>Lo que suelen preguntarnos</h2>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <h3>¿Necesito mi propio certificado?</h3>
+        <p>
+          Sí. El certificado digital se emite ante la DGII a nombre de tu empresa y se
+          carga en tu cuenta dentro del portal. Nosotros no lo emitimos ni lo custodiam.
+        </p>
+      </article>
+      <article class="card">
+        <h3>¿Qué pasa si supero el límite de comprobantes?</h3>
+        <p>
+          El sistema sigue funcionando y cobra solo los comprobantes adicionales al
+          finalizar el mes. Puedes cambiar de plan en cualquier momento.
+        </p>
+      </article>
+      <article class="card">
+        <h3>¿Los datos de mi empresa quedan aislados?</h3>
+        <p>
+          Sí. Cada organización tiene sus comprobantes, clientes, usuarios y certificados
+          separados; ningún tenant ve información de otro.
+        </p>
+      </article>
+      <article class="card">
+        <h3>¿Puedo cancelar cuando quiera?</h3>
+        <p>
+          Sí. La cancelación se aplica al finalizar el período que ya pagaste: sigues
+          usando la plataforma hasta esa fecha y no se emite ninguna factura nueva.
+        </p>
+      </article>
+      <article class="card">
+        <h3>¿Guardan mis comprobantes?</h3>
+        <p>
+          Sí, y puedes descargarlos en PDF y XML las veces que quieras. Los comprobantes
+          emitidos se conservan para tus requisitos contables y fiscales.
+        </p>
+      </article>
+      <article class="card">
+        <h3>¿Cómo contacto soporte?</h3>
+        <p>
+          Escribiendo a
+          <a href="mailto:contacto@ecfgateway.com">contacto@ecfgateway.com</a>.
+          Respondemos en horario laboral de República Dominicana.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="eyebrow">Empezar</span>
+      <h2>Solicita acceso a ECF Gateway</h2>
+      <p>
+        Escríbenos con los datos de tu empresa y te enviamos la información de
+        activación de tu cuenta.
+      </p>
+      <p style="margin-top:1.5rem;">
+        <a class="btn btn-primary" href="mailto:contacto@ecfgateway.com?subject=Solicito%20acceso%20a%20ECF%20Gateway">Solicitar acceso</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html" style="color:#111827;">
+          <img src="assets/img/logo.svg" alt="ECF Gateway">
+          <span>ECF Gateway</span>
+        </a>
+        <p>
+          Plataforma de facturación electrónica para empresas dominicanas.
+          Emisión de comprobantes fiscales electrónicos ante la Dirección General
+          de Impuestos Internos.
+        </p>
+        <div class="footer-identity">
+          <div><strong>RNC:</strong> 131-45678-9</div>
+          <div><strong>Correo:</strong> contacto@ecfgateway.com</div>
+          <div><strong>Teléfono:</strong> +1 809 000 0000</div>
+          <div><strong>Dirección:</strong> Santo Domingo, República Dominicana</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-title">Producto</div>
+        <ul class="footer-links">
+          <li><a href="#producto">Qué es</a></li>
+          <li><a href="#caracteristicas">Características</a></li>
+          <li><a href="#planes">Planes</a></li>
+          <li><a href="#faq">Preguntas</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-title">Legal</div>
+        <ul class="footer-links">
+          <li><a href="terms.html">Términos y Condiciones</a></li>
+          <li><a href="privacy.html">Política de Privacidad</a></li>
+          <li><a href="refund.html">Política de Reembolso</a></li>
+          <li><a href="shipping.html">Política de Envío</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 ECF Gateway. Todos los derechos reservados.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

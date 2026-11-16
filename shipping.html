@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es-DO">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Envío y Entrega — ECF Gateway</title>
+  <meta name="description" content="Cómo se entrega el servicio de ECF Gateway: es un servicio digital, sin envío físico, con acceso inmediato tras la confirmación del pago.">
+  <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html">
+      <img src="assets/img/logo.svg" alt="ECF Gateway">
+      <span>ECF Gateway</span>
+    </a>
+    <nav class="site-nav">
+      <a href="index.html">Inicio</a>
+      <a href="terms.html">Términos</a>
+      <a href="refund.html">Reembolso</a>
+      <a href="shipping.html">Envío</a>
+    </nav>
+  </div>
+</header>
+
+<main class="legal">
+  <h1>Política de Envío y Entrega</h1>
+  <p class="updated">Última actualización: 16 de noviembre de 2026</p>
+
+  <div class="callout">
+    ECF Gateway es un servicio digital que se consume en línea. No hay ningún envío
+    físico de mercadería ni de documentos impresos.
+  </div>
+
+  <h2>1. Naturaleza del servicio</h2>
+  <p>
+    Todo lo que ECF Gateway ofrece se presta de forma electrónica: acceso al portal
+    web, acceso a la API REST, generación de comprobantes fiscales electrónicos,
+    almacenamiento de comprobantes, generación de archivos PDF y XML, y el servicio
+    opcional de lectura automática de facturas.
+  </p>
+  <p>
+    Por esta razón, esta política describe la entrega del acceso al servicio y de los
+    documentos que genera, y no el envío de productos físicos.
+  </p>
+
+  <h2>2. Momento de la entrega</h2>
+  <ul>
+    <li>El acceso al portal y a la API se habilita en el momento en que se confirma el pago y se completa el alta de la organización.</li>
+    <li>La confirmación del pago se produce al recibir la transferencia bancaria o al confirmarse el cargo con tarjeta.</li>
+    <li>El alta se completa en un plazo máximo de un día hábil desde la confirmación del pago.</li>
+    <li>La documentación de la API (OpenAPI) está disponible de inmediato dentro del portal.</li>
+  </ul>
+
+  <h2>3. Entrega de los comprobantes fiscales</h2>
+  <p>
+    Los comprobantes fiscales electrónicos se entregan en el momento de su emisión, de
+    forma íntegramente digital:
+  </p>
+  <ul>
+    <li><strong>PDF</strong> con el código QR de verificación de la Dirección General de Impuestos Internos, descargable desde el portal en cualquier momento.</li>
+    <li><strong>XML firmado digitalmente</strong>, con la misma estructura y los mismos valores de firma que el comprobante transmitido a la DGII, descargable desde el portal.</li>
+    <li><strong>Enlace seguro para el cliente final</strong>, generado bajo demanda y con vigencia limitada, que permite consultar o descargar el comprobante sin registrarse en la plataforma.</li>
+    <li><strong>Correo electrónico</strong> al comprador, cuando el cliente lo solicita al emitir el comprobante.</li>
+  </ul>
+  <p>
+    Los comprobantes quedan almacenados en la cuenta del cliente durante el plazo de
+    conservación exigido por la normativa tributaria dominicana y pueden descargarse
+    durante todo ese tiempo.
+  </p>
+
+  <h2>4. Entrega del certificado digital</h2>
+  <p>
+    El certificado digital de la DGII no se emite ni se entrega por nosotros: se
+    contrata directamente con la Dirección General de Impuestos Internos. El cliente lo
+    carga en su cuenta dentro del portal en cualquier momento, y queda almacenado
+    cifrado en reposo. Desde ese momento, el sistema puede firmar y enviar
+    comprobantes sin intervención adicional.
+  </p>
+
+  <h2>5. Accesibilidad del servicio</h2>
+  <ul>
+    <li>El portal y la API están disponibles de forma continua, con la única excepción de mantenimientos programados, que se anuncian con antelación por correo electrónico.</li>
+    <li>Las incidencias de seguridad o de disponibilidad se notifican a los administradores de cada cuenta.</li>
+    <li>No hay restricciones geográficas: el servicio se consume desde cualquier conexión a internet.</li>
+  </ul>
+
+  <h2>6. Soporte</h2>
+  <p>
+    Las consultas sobre la entrega o el uso del servicio se atienden en
+    <a href="mailto:contacto@ecfgateway.com">contacto@ecfgateway.com</a>, en horario
+    laboral de República Dominicana (lunes a viernes, de 8:00 a 18:00, hora de
+    Santo Domingo).
+  </p>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="index.html" style="color:#111827;">
+          <img src="assets/img/logo.svg" alt="ECF Gateway">
+          <span>ECF Gateway</span>
+        </a>
+        <p>
+          Plataforma de facturación electrónica para empresas dominicanas.
+          Emisión de comprobantes fiscales electrónicos ante la Dirección General
+          de Impuestos Internos.
+        </p>
+        <div class="footer-identity">
+          <div><strong>RNC:</strong> 131-45678-9</div>
+          <div><strong>Correo:</strong> contacto@ecfgateway.com</div>
+          <div><strong>Teléfono:</strong> +1 809 000 0000</div>
+          <div><strong>Dirección:</strong> Santo Domingo, República Dominicana</div>
+        </div>
+      </div>
+      <div>
+        <div class="footer-title">Producto</div>
+        <ul class="footer-links">
+          <li><a href="index.html#producto">Qué es</a></li>
+          <li><a href="index.html#caracteristicas">Características</a></li>
+          <li><a href="index.html#planes">Planes</a></li>
+          <li><a href="index.html#faq">Preguntas</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-title">Legal</div>
+        <ul class="footer-links">
+          <li><a href="terms.html">Términos y Condiciones</a></li>
+          <li><a href="privacy.html">Política de Privacidad</a></li>
+          <li><a href="refund.html">Política de Reembolso</a></li>
+          <li><a href="shipping.html">Política de Envío</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 ECF Gateway. Todos los derechos reservados.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
