@@ -10,3 +10,6 @@ Thumbs.db
 dist/
 build/
 .cache/
+
+# Estado y capturas del gate de diseño (QA local, no es contenido del sitio)
+.taste-skill/
