@@ -33,6 +33,26 @@
 /* keep closed sheet out of layout checks */
 .nav__sheet[aria-hidden="true"] { display: none !important; }
 
+/* the fixed header: its .wrap fills the bar so the logo and the button centre in it */
+.nav > .wrap { height: 100%; }
+/* the client's asset is an icon-only mark: show it with the company name beside it */
+.nav__logo img { height: 28px; width: 28px; }
+.nav__wordmark { font: inherit; letter-spacing: inherit; white-space: nowrap; }
+@media (max-width: 639px) {
+  .nav__logo img { height: 26px; width: 26px; }
+  .nav__wordmark { font-size: clamp(15px, 3.9vw, 20px); }
+}
+/* a small phone: there is no room for the mark and the name beside the button and the menu; the name stays,
+   since the mark alone does not say which company this is */
+@media (max-width: 400px) {
+  .nav__logo img { display: none; }
+  .nav__wordmark { font-size: 16px; }
+}
+@media (max-width: 340px) {
+  .nav__logo img { display: inline-block; }
+  .nav__wordmark { display: none; }
+}
+
 /* app-frame */
 .app-frame__shell {
   border: 1px solid var(--line);
