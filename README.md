@@ -4,14 +4,9 @@ Sitio público (landing page + políticas legales) de ECF Gateway.
 
 ## Propósito
 
-Cumplir los requisitos de **dLocal** para poder activar la cuenta de producción:
+Sitio público de ECF Gateway: landing del producto con políticas legales visibles y URL propia.
 
-1. Sitio 100% terminado (sin placeholders ni secciones "en construcción").
-2. Políticas visibles: Términos y Condiciones, Política de Envío, Política de Reembolso (y Privacidad).
-3. Identidad visible: nombre de la empresa, RNC, correo de contacto.
-4. URL propia (no se puede usar una red social).
-
-Ver [`docs/PLAN_WEBSITE_DLOCAL.md`](./docs/PLAN_WEBSITE_DLOCAL.md) para el plan completo.
+> **Nota (Vía B, 2026-11-25):** el sitio ya no está ligado a la activación de dLocal Go, que fue deprecado. El plan original en [`docs/PLAN_WEBSITE_DLOCAL.md`](./docs/PLAN_WEBSITE_DLOCAL.md) queda como referencia histórica.
 
 ## Estructura
 

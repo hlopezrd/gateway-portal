@@ -1,7 +1,7 @@
 # Plan: Sitio web público para dLocal (landing page de ECF Gateway)
 
 > **Fecha:** 2026-11-16
-> **Estado:** Pendiente de implementación.
+> **Estado:** **Obsoleto tras la Vía B (2026-11-25).** dLocal Go fue deprecado en el producto; este plan queda como registro histórico y ya no es un requisito activo. El sitio público se mantiene como landing de ECF Gateway por sus propios motivos.
 > **Contexto:** dLocal Go (y dLocal enterprise) exige un sitio web 100% terminado, con políticas visibles e identidad clara, para activar la cuenta de producción. No se puede usar una red social como sitio web.
 > **Objetivo:** tener un sitio público que cumpla los requisitos de dLocal y sirva como landing page del producto.
 > **Repo:** `gateway-portal` (este repo).
